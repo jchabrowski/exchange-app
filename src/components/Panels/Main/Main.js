@@ -3,14 +3,16 @@ import './Main.scss';
 import { axiosRequest, BASE_URL } from '../../../api/exchange.api'
 
 function Main(props) {
+  const [rates, setRates] = useState()
+
   useEffect(() =>
     axiosRequest('get', `${BASE_URL}/exchangerates/tables/C`)
       .then(response => {
-        console.log(response);
-        
+        console.log(response.data[0].rates);
+        setRates(response.data[0].rates)
       })
       .catch(err => console.log(err.response))
-  )
+  ,[]);
   return (
     <div className="main-panel">
       <h1>Hello!</h1>
@@ -18,17 +20,21 @@ function Main(props) {
       <h2>Have you seen today's exchange rates?</h2>
 
       <div className="currencies">
-        <div className="currency">
-          <p>$USD price is 4.20PLN</p>
-          <button>+</button>
-          <button>-</button>
-        </div>
-        <div className="currency">
-          <p>CHF price is 3.80PLN</p>
-        </div>
-        <div className="currency">
-          <p>$AUD price is 2.80PLN</p>
-        </div>
+        {rates?.map((currency) => {
+          return (
+            <div className={`${currency.code} card`}>
+              <p className="code">{currency.code}</p> 
+              <div className="rates">
+                <p className="buy">Buy: {currency.bid}</p>
+                <p className="sell">Sell: {currency.ask}</p>
+              </div>
+              <div className="buttons">
+                <button>+</button>
+                <button>-</button>
+                <button>fav</button>
+              </div>
+            </div>)
+        })}
       </div>
     </div>
   );
