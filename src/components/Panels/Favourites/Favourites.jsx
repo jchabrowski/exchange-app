@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './Favourites.scss';
-import { FiXCircle } from 'react-icons/fi';
+import { FiXCircle, FiTrash2 } from 'react-icons/fi';
 import { FavContext } from '../../../context/FavouritesContext';
 import shortenPrice from '../../../helpers/shortenPrice';
 
@@ -10,6 +10,10 @@ function Favourites() {
   function removeFromFav(code) {
     const newCurrencies = favourites.filter((item) => item.code !== code);
     setFavourites(newCurrencies);
+  }
+
+  function clearAllFav() {
+    setFavourites([]);
   }
   return (
     <div className="favourites-panel">
@@ -32,6 +36,12 @@ function Favourites() {
               </div>
             </div>
           ))}
+          {favourites.length > 0 && (
+            <div className="clear-fav-button" onClick={() => clearAllFav()}>
+              <p className="clear-text">clear all</p>
+              <FiTrash2 size="1.5em" />
+            </div>
+          )}
         </div>
       </div>
     </div>

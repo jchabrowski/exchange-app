@@ -45,6 +45,24 @@ $main-font: 'Roboto Mono', monospace;
           }
         }
       }
+
+      > .clear-fav-button {
+        display: flex;
+        justify-content: flex-end;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        > .clear-text {
+          padding: 5px;
+          margin-top: 0;
+        }
+
+        > svg {
+          padding: 5px;
+        }
+      }
     }
 
     > .fav-heading {
