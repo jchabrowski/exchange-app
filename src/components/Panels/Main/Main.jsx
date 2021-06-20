@@ -52,7 +52,16 @@ function Main() {
             </div>
             <div className="buttons">
               <div className="button">
-                <FiHeart size="1.5em" onClick={() => addToFav(currency)} />
+                <FiHeart
+                  size="1.5em"
+                  style={
+                    favourites.filter((fav) => fav.code === currency.code).length > 0 && {
+                      color: 'black',
+                      fill: '#cc2424',
+                    }
+                  }
+                  onClick={() => addToFav(currency)}
+                />
               </div>
             </div>
           </div>
