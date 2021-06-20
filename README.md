@@ -2,6 +2,8 @@
 
 <h1>Frontend app displaying exchange rates using nbp.api</h1>
 
+<h2>Demo: https://jchabrowski.github.io/exchange-app/</h2>
+
 -----
 
 Basic frontend application fetching currency exchange rates
