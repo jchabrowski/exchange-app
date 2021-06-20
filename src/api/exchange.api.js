@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-export const BASE_URL = 'http://api.nbp.pl/api';
+export const BASE_URL = 'https://api.nbp.pl/api';
 
 export const axiosRequest = (method, endpoint, payload) => {
   const usePayload = !['delete', 'get'].includes(method);

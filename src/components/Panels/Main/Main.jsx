@@ -11,8 +11,7 @@ function Main() {
   useEffect(() => axiosRequest('get', `${BASE_URL}/exchangerates/tables/C`)
     .then((response) => {
       setCurrencies(response.data[0].rates);
-    })
-    .catch((err) => console(err.response)), []);
+    }), []);
   function addToFav(currency) {
     const listedCurrency = currencies.filter((item) => item.code === currency.code);
     const favouritedCurrency = favourites.filter((item) => item.code === currency.code);
