@@ -1,4 +1,4 @@
-export default function getFloat(number) {
+export default function shortenPrice(number) {
   if (number <= 0.09) {
     return number;
   }

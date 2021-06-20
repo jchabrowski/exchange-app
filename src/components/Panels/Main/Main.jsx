@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { FiHeart } from 'react-icons/fi';
 import { FavContext } from '../../../context/FavouritesContext';
 import { axiosRequest, BASE_URL } from '../../../api/exchange.api';
-import getFloat from '../../../helpers/getFloat';
+import shortenPrice from '../../../helpers/shortenPrice';
 import './Main.scss';
 
 function Main() {
@@ -20,7 +20,9 @@ function Main() {
       return;
     }
 
-    if (favourites.length >= 5) {
+    const MAX_FAVOURITE_CURRENCIES = 5;
+
+    if (favourites.length >= MAX_FAVOURITE_CURRENCIES) {
       return;
     }
     setFavourites((prevState) => [...prevState, currency]);
@@ -41,9 +43,9 @@ function Main() {
             </p>
             <div className="rates">
               <p className="buy">Bid:</p>
-              <p className="green">{getFloat(currency.bid)}</p>
+              <p className="green">{shortenPrice(currency.bid)}</p>
               <p className="sell">Ask:</p>
-              <p className="fade">{getFloat(currency.ask)}</p>
+              <p className="fade">{shortenPrice(currency.ask)}</p>
             </div>
             <div className="buttons">
               <div className="button">

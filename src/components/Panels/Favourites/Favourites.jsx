@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './Favourites.scss';
 import { FiXCircle } from 'react-icons/fi';
 import { FavContext } from '../../../context/FavouritesContext';
-import getFloat from '../../../helpers/getFloat';
+import shortenPrice from '../../../helpers/shortenPrice';
 
 function Favourites() {
   const [favourites, setFavourites] = useContext(FavContext);
@@ -25,9 +25,9 @@ function Favourites() {
               </p>
               <div className="rates">
                 <p className="buy">Bid:</p>
-                <p className="green">{getFloat(currency.bid)}</p>
+                <p className="green">{shortenPrice(currency.bid)}</p>
                 <p className="sell">Ask:</p>
-                <p className="fade">{getFloat(currency.ask)}</p>
+                <p className="fade">{shortenPrice(currency.ask)}</p>
               </div>
               <div className="button">
                 <FiXCircle size="1.5em" onClick={() => removeFromFav(currency.code)} />
