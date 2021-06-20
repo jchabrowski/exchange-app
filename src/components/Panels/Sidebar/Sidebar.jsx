@@ -7,7 +7,9 @@ function Sidebar() {
       <div className="tabs">
         <div className="tab-button">
           <p className="contact">Contact</p>
-          <a href="mailto:chabrowski.kuba@gmail.com" className="mail">chabrowski.kuba@gmail.com</a>
+          <a href="mailto:chabrowski.kuba@gmail.com" className="mail">
+            chabrowski.kuba@gmail.com
+          </a>
         </div>
       </div>
     </div>

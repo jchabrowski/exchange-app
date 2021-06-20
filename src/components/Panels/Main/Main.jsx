@@ -8,10 +8,15 @@ import './Main.scss';
 function Main() {
   const [currencies, setCurrencies] = useState();
   const [favourites, setFavourites] = useContext(FavContext);
-  useEffect(() => axiosRequest('get', `${BASE_URL}/exchangerates/tables/C`)
-    .then((response) => {
-      setCurrencies(response.data[0].rates);
-    }), []);
+
+  useEffect(
+    () =>
+      axiosRequest('get', `${BASE_URL}/exchangerates/tables/C`).then((response) => {
+        setCurrencies(response.data[0].rates);
+      }),
+    [],
+  );
+
   function addToFav(currency) {
     const listedCurrency = currencies.filter((item) => item.code === currency.code);
     const favouritedCurrency = favourites.filter((item) => item.code === currency.code);
@@ -38,9 +43,7 @@ function Main() {
       <div className="currencies">
         {currencies?.map((currency, idx) => (
           <div className={`${currency.code} card`} key={idx}>
-            <p className="code">
-              {currency.code}
-            </p>
+            <p className="code">{currency.code}</p>
             <div className="rates">
               <p className="buy">Bid:</p>
               <p className="green">{shortenPrice(currency.bid)}</p>

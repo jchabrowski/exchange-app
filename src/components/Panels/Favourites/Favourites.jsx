@@ -20,9 +20,7 @@ function Favourites() {
         <div className="currencies-container">
           {favourites?.map((currency, idx) => (
             <div className={`${currency.code} fav-card`} key={idx}>
-              <p className="code">
-                {currency.code}
-              </p>
+              <p className="code">{currency.code}</p>
               <div className="rates">
                 <p className="buy">Bid:</p>
                 <p className="green">{shortenPrice(currency.bid)}</p>
