@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react';
 import './Favourites.scss';
 import { FiXCircle } from 'react-icons/fi';
