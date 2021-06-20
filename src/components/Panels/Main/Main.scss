@@ -1,10 +1,52 @@
+$secondary-font: 'Open Sans', sans-serif;
+$main-font: 'Roboto Mono', monospace;
+
+.greeting-container {
+  font-family: $main-font;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+  .greeting-heading {
+    margin-bottom: 0;
+  }
+
+  .greeting-subheading {
+    
+  }
+
+  .greeting-text {
+    margin-top: 0;
+  }
+}
+
+.search-container {
+  font-family: $main-font;
+
+  .search-heading {
+    font-size: 1.2rem;
+  }
+
+  .searchbar {
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid #A0C8D3;
+
+    font-family: inherit;
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+}
+
 .currencies {
+  font-family: $main-font;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
   .card {
-    background-color: #A0C8D3;
+    background-color: #a0c8d357;
     padding: 5px;
     border-radius: 10px;
     margin-top: 5px;
@@ -14,29 +56,50 @@
     .code {
       font-size: 1.3rem;
       font-weight: 600;
-      padding-right: 10px;
     }
 
     .rates { 
       display: flex;
-      flex-direction: column;
-      // font-size: 0.9rem;
+      width: 300px;
 
       .buy, .sell {
-        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 5px;
+      }
+
+      .green {
+        color: #118C4F;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 5px;
+      }
+
+      .fade {
+        color: #7a1919;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 5px;
       }
     }
 
     .buttons {
-      margin-top: 15px;
-      margin-bottom: 15px;
+      display: flex;
 
-      button {
-        height: 100%;
-        width: 40px;
-        padding: 15px;
-        margin-left: 10px;
-        margin-right: 10px;
+      > .button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px;
+
+        > svg {
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
     }
   }

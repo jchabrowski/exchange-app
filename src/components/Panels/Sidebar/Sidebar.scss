@@ -1,0 +1,33 @@
+$secondary-font: 'Open Sans', sans-serif;
+$main-font: 'Roboto Mono', monospace;
+
+$offwhite: darken(white, 10%);
+$darkblue: rgb(50,50,60);
+
+.sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .tabs {
+    text-align: center;
+    
+    .tab-button > button {
+      font-family: $main-font;
+      font-size: 2rem;
+      padding: 20px;
+      width: 60%;
+      margin: 2%;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      background-color: transparent;
+      font-weight: 400;
+
+      &:hover {
+        background-color: #fff;
+        color: #000;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,37 +1,65 @@
-import React, {useState, useEffect} from 'react';
-import './Main.scss';
+import React, {useState, useEffect, useRef, useContext } from 'react';
+import { FavContext } from '../../../context/FavouritesContext';
 import { axiosRequest, BASE_URL } from '../../../api/exchange.api'
+import { FiHeart, FiXCircle } from 'react-icons/fi';
+import { getFloat } from '../../../helpers/getFloat';
+import './Main.scss';
 
-function Main(props) {
-  const [rates, setRates] = useState()
-
+function Main() {
+  const [currencies, setCurrencies] = useState();
+  const [favourites, setFavourites] = useContext(FavContext);
+  
   useEffect(() =>
-    axiosRequest('get', `${BASE_URL}/exchangerates/tables/C`)
-      .then(response => {
-        console.log(response.data[0].rates);
-        setRates(response.data[0].rates)
-      })
-      .catch(err => console.log(err.response))
+  axiosRequest('get', `${BASE_URL}/exchangerates/tables/C`)
+    .then(response => {
+      setCurrencies(response.data[0].rates)
+    })
+    .catch(err => console.log(err.response))
   ,[]);
+  
+  function addToFav(currency) {
+    const listedCurrency = currencies.filter((item) => item.code === currency.code);
+    const favouritedCurrency = favourites.filter((item) => item.code === currency.code);
+      if(favouritedCurrency.length > 0 && listedCurrency[0].code === favouritedCurrency[0].code) {
+        return
+      }
+    setFavourites((prevState) => [...prevState, currency])
+  }
+
+  function removeCurrency(code) {
+    const newCurrencies = currencies.filter((item) => item.code !== code)
+    setCurrencies(newCurrencies)
+  }
+
   return (
     <div className="main-panel">
-      <h1>Hello!</h1>
-      <p>good too see you again</p>
-      <h2>Have you seen today's exchange rates?</h2>
+      <div className="greeting-container">
+        <h1 className="greeting-heading">Hello!</h1>
+        <p className="greeting-text">good too see you again</p>
+        <h2 className="greeting-subheading">Have you seen today's exchange rates?</h2>
+      </div>
 
+      <div className="search-container">
+        <h3 className="search-heading">Cannot find your currency?</h3>
+        <input type="text" placeholder="Search by currency code" className="searchbar"></input>
+      </div>
+      
       <div className="currencies">
-        {rates?.map((currency) => {
+        {currencies?.map((currency, idx) => {
           return (
-            <div className={`${currency.code} card`}>
+            <div className={`${currency.code} card`} key={idx}>
               <p className="code">{currency.code}</p> 
               <div className="rates">
-                <p className="buy">Buy: {currency.bid}</p>
-                <p className="sell">Sell: {currency.ask}</p>
+                <p className="buy">Bid:</p><p className="green">{getFloat(currency.bid)}</p>
+                <p className="sell">Ask:</p><p className="fade"> {getFloat(currency.ask)}</p>
               </div>
               <div className="buttons">
-                <button>+</button>
-                <button>-</button>
-                <button>fav</button>
+                <div className="button">
+                  <FiXCircle size="1.5em" onClick={() => removeCurrency(currency.code)} />
+                </div>
+                <div className="button">
+                  <FiHeart size="1.5em" onClick={() => addToFav(currency)}/>
+                </div>
               </div>
             </div>)
         })}

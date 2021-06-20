@@ -1,0 +1,59 @@
+$secondary-font: 'Open Sans', sans-serif;
+$main-font: 'Roboto Mono', monospace;
+
+.favourites-panel {
+  top: 40%;
+  font-family: $main-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  
+  > .favourites-container {
+    text-align: center;
+
+    > .currencies-container {
+      > .fav-card {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 10px;
+        background-color: #69d39e57;
+        border-radius: 5px;
+        margin-top: 5px;
+        // width: 100%;
+
+        > .code {
+          padding: 5px;
+        }
+
+        > .rates {
+          display: flex;
+
+          > p {
+            padding: 5px;
+          }
+        }
+
+        .button {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 5px;
+  
+          > svg {
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    > .fav-heading {
+      margin-bottom: 0;
+    }
+
+    > .fav-text {
+      margin-top: 0;
+    }
+  }
+}

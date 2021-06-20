@@ -1,21 +1,36 @@
+$secondary-font: 'Open Sans', sans-serif;
+$main-font: 'Roboto Mono', monospace;
+
 .exchange-wrapper {
   display: flex;
 
   > .sidebar-panel {
     width: 20%;
     height: 100vh;
-    background: #83a4d4;
-    background: -webkit-linear-gradient(to top, #b6fbff, #83a4d4);
-    background: linear-gradient(to top, #b6fbff, #83a4d4);
+    // background: #83a4d4;
+    // background: -webkit-linear-gradient(to top, #b6fbff, #83a4d4);
+    // background: linear-gradient(to top, #b6fbff, #83a4d4);
+    position: fixed;
   }
 
   > .main-panel {
-    padding: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
     width: 50%;
     text-align: center;
+    position: absolute;
+    left: 20%;
   }
 
   > .favourites-panel {
-    width: 30%;
+    width: 24%;
+    position: absolute;
+    right: 0%;
+    padding-left: 1%;
+    padding-right: 1%;
+    height: 100vh;
+    background-color: transparent;
+    position: fixed;
   }
 }
