@@ -13,7 +13,7 @@ Basic frontend application fetching currency exchange rates
 🎯 Displaying list of provided currencies<br>
 🎯 Keeping track of favourite currencies<br>
 
-:memo: Using ESLint
+:memo: Using ESLint <br>
 :memo: Using Prettier
 
 Install node packages
