@@ -12,21 +12,24 @@ $darkblue: rgb(50,50,60);
   .tabs {
     text-align: center;
     
-    .tab-button > p {
-      font-family: $main-font;
-      font-size: 2rem;
-      padding: 20px;
-      width: 60%;
-      margin: 2%;
-      border: 2px solid #fff;
-      border-radius: 5px;
-      background-color: transparent;
-      font-weight: 400;
+    .tab-button {
+      > p {
+        font-family: $main-font;
+        font-size: 2rem;
+        padding: 20px;
+        margin-bottom: 0;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        background-color: transparent;
+        font-weight: 400;
+      }
 
-      &:hover {
-        background-color: #fff;
-        color: #000;
-        cursor: pointer;
+      > .mail {
+        font-family: $main-font;
+        font-size: 1rem;
+        text-decoration: none;
+        padding: 20px;
+        font-weight: 400;
       }
     }
   }

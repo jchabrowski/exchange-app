@@ -1,8 +1,7 @@
-export function getFloat(number) {
+export default function getFloat(number) {
   if (number <= 0.09) {
-    return number
+    return number;
   }
-  
-  let fixedNum = number.toFixed(2);
+  const fixedNum = number.toFixed(2);
   return fixedNum;
 }
