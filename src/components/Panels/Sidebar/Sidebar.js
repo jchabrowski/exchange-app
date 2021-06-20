@@ -6,10 +6,7 @@ function Sidebar(props) {
     <div className="sidebar-panel">
       <div className="tabs">
         <div className="tab-button">
-          <button className="exchange">Exchange</button>
-        </div>
-        <div className="tab-button">
-          <button className="contact">Contact</button>
+          <p className="contact">Contact</p>
         </div>
       </div>
     </div>

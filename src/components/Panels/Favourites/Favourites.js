@@ -16,6 +16,7 @@ function Favourites() {
       <div className="favourites-container">
         <h1 className="fav-heading">Favourites</h1>
         <p className="fav-text">keep an eye on them!</p>
+        <p className="fav-text silent">You can follow up to 5 favourite currencies</p>
         <div className="currencies-container">
         {favourites?.map((currency, idx) => {
           return (

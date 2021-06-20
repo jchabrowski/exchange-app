@@ -2,7 +2,7 @@ $secondary-font: 'Open Sans', sans-serif;
 $main-font: 'Roboto Mono', monospace;
 
 .favourites-panel {
-  top: 40%;
+  top: 20%;
   font-family: $main-font;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,6 @@ $main-font: 'Roboto Mono', monospace;
         background-color: #69d39e57;
         border-radius: 5px;
         margin-top: 5px;
-        // width: 100%;
 
         > .code {
           padding: 5px;
@@ -54,6 +53,11 @@ $main-font: 'Roboto Mono', monospace;
 
     > .fav-text {
       margin-top: 0;
+
+      &.silent {
+        font-size: 0.8rem;
+        color:rgba(80, 80, 80, 0.678);
+      }
     }
   }
 }
