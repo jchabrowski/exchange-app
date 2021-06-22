@@ -6,29 +6,27 @@ $darkblue: rgb(50,50,60);
 
 .sidebar-panel {
   display: flex;
+  top: 20%;
+  font-family: $main-font;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 
   .tabs {
     text-align: center;
     
     .tab-button {
-      > p {
+      > .contact {
         font-family: $main-font;
-        font-size: 2rem;
-        padding: 20px;
         margin-bottom: 0;
-        border: 2px solid #fff;
-        border-radius: 5px;
-        background-color: transparent;
-        font-weight: 400;
+        padding: 20px;
       }
 
       > .mail {
         font-family: $main-font;
         font-size: 1rem;
         text-decoration: none;
-        padding: 20px;
+        padding: 20px 20px 40px;
         font-weight: 400;
       }
     }

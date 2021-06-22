@@ -56,7 +56,7 @@ function Main() {
                   size="1.5em"
                   style={
                     favourites.filter((fav) => fav.code === currency.code).length > 0 && {
-                      color: 'black',
+                      color: '#000',
                       fill: '#cc2424',
                     }
                   }
